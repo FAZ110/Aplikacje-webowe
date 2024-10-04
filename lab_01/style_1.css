@@ -1,3 +1,5 @@
+/* Ćwiczenie_3 */
+
 #box1{
     border: 1px solid;
     height: 100px;
@@ -46,9 +48,3 @@
     left: 150px
 }
 
-#img{
-    
-    position: absolute;
-    top: 200px;
-    left: 300px
-}
