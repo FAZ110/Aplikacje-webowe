@@ -9,35 +9,22 @@
   
   .container{
     height: 100vh;
-    width: 100vw;
+    max-width: 100vw;
     display: grid;
     padding: 0;
     text-align: center;
     align-items: center;
     justify-items: center;
-    grid-template-columns:20vw auto 20vw ;
+    grid-template-columns: 1fr 3fr 3fr 1fr;
     grid-template-rows: 15vh auto 15vh;
     grid-template-areas: 
-    "   .   nag   nav   "
-    "   .   form   .   "
-    "   .   .   footer   "
+    "   .   nag   nag   navbar   "
+    "   .   form   form   .   "
+    "   .   .   .   footer   "
     ;
   }
   
   
-  
-  .navbar {
-    
-    grid-area: nav;
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    width: 100%;
-    height: 100px;
-    
-    
-  }
-
   .footer {
     grid-area: footer;
     display: flex;
@@ -103,17 +90,13 @@
     font-weight: bold;
 }
 
-/* button{
-    display: flex;
-    -ms-flex-align: center;
-    
-} */
-
 a{
 
     text-decoration: none;
     font-size: 1rem;
     color: black;
 }
+
+
 
   

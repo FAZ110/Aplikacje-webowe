@@ -29,13 +29,13 @@ function toggleInfo() {
 }
 
 function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    if (i < 10) {i = "0" + i}; 
     return i;
 }
   
 
 function goToPage(page) {
-  window.location.href = page; // Navigate to the specified page
+  window.location.href = page; 
 }
 
 
@@ -44,18 +44,18 @@ function handleFormSubmit() {
   const emailField = document.getElementById("email");
   const errorField = document.getElementById("error");
 
-  // Basic email pattern to check for "@" symbol and a domain
+  
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailPattern.test(emailField.value)) {
       errorField.style.display = "block";
-      emailField.style.border = "2px solid red"; // Red border for invalid input
-      return false; // Prevent form submission
+      emailField.style.border = "2px solid red"; 
+      return false; 
   }
 
-  errorField.style.display = "none"; // Hide error if email is valid
-  emailField.style.border = "1px solid #ccc"; // Reset border for valid input
-  return true; // Allow form submission
+  errorField.style.display = "none"; 
+  emailField.style.border = "1px solid #ccc"; 
+  return true; 
 }
 
   

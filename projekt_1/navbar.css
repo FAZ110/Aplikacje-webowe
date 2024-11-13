@@ -1,0 +1,11 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    grid-area: navbar;
+    font-size: 2rem;
+    width: 100%;
+    height: 100px;
+    
+    
+
+}

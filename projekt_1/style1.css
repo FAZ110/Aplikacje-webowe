@@ -1,6 +1,5 @@
-
 .container{
-    width: 100vw;
+    max-width: 100vw;
     height: 100vh;
     margin: 0 auto;
     line-height: 1.2;
@@ -26,17 +25,7 @@
 
 }
 }
-.navbar{
-    display: flex;
-    align-items: center;
-    grid-area: navbar;
-    font-size: 2rem;
-    width: 100%;
-    height: 100px;
-    
-    
 
-}
 
 .main-content1{
     
@@ -97,11 +86,11 @@ header{
   }
   
   #extraInfo {
-    display: none; /* Initially hidden */
+    display: none; 
     position: absolute;
-    top: 50%; /* Position it directly below the button */
+    top: 50%; 
     left: 0;
-    width: max-content; /* Adjust width based on content */
+    width: max-content; 
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
