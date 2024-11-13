@@ -28,6 +28,7 @@
     <h1>Contact Form</h1>
     <form id="contactForm" onsubmit="return handleFormSubmit()">
         <input type="text" id="email" placeholder="Enter your email" required>
+        <p id="error" style="color: red; display: none; font-size: 0.9em; margin-top: 5px;">Invalid email!</p>
         <select id="subject">
           <option value="question">Question</option>
           <option value="feedback">Feedback</option>
