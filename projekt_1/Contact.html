@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+  <div class="container">
+
+    <nav class="navbar">
+        <ul class="links">
+            <a href="index.html">Home</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Contact.html">Contact</a>
+        </ul>
+    </nav>
+
+    <footer class="footer">
+        <h3>Jan Dyląg</h3>
+
+    </footer>
+    
+    <h1>Contact Form</h1>
+    <form id="contactForm" onsubmit="return handleFormSubmit()">
+        <input type="text" id="email" placeholder="Enter your email" required>
+        <select id="subject">
+          <option value="question">Question</option>
+          <option value="feedback">Feedback</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea id="message" placeholder="Type your message" required></textarea>
+        <input type="submit" value="Send">
+      </form>
+      
+  </div>
+</body>
+</html>

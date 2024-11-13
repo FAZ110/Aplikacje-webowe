@@ -2,11 +2,11 @@
 
 body {
     display: grid;
-    grid-template-columns: repeat(3, 100px); /* 3 kolumny o szerokości 100px */
-    grid-template-rows: repeat(2, 100px);    /* 2 rzędy o wysokości 100px */
-    gap: 20px; /* Odstępy między elementami */
-    justify-content: center; /* Centrowanie siatki poziomo */
-    align-content: center;   /* Centrowanie siatki pionowo */
+    grid-template-columns: repeat(3, 100px); 
+    grid-template-rows: repeat(2, 100px);    
+    gap: 20px; 
+    justify-content: center; 
+    align-content: center;   
     height: 100vh;
     margin: 0;
 }
@@ -17,7 +17,7 @@ div {
     border: 1px solid black;
 }
 
-/* Definiowanie pozycji pierwszego rzędu z 2 elementami */
+
 #box1 {
     background-color: black;
     grid-column: 1 / 2;
@@ -30,7 +30,7 @@ div {
     grid-row: 1 / 2;
 }
 
-/* Definiowanie pozycji drugiego rzędu z 3 elementami */
+
 #box3 {
     background-color: yellow;
     grid-column: 1 / 2;
@@ -45,20 +45,20 @@ div {
 
 #box5 {
     background-color: green;
-    grid-column: 2 / 3; /* Ustawiamy obrazek w środkowej kolumnie drugiego rzędu */
+    grid-column: 2 / 3; 
     grid-row: 2 / 3;
-    display: flex;       /* Flexbox do centrowania obrazka */
+    display: flex;       
     justify-content: center;
     align-items: center;
 }
 
 img {
-    max-width: 100%;    /* Dopasowanie rozmiaru obrazka do bloku */
+    max-width: 100%;    
     max-height: 100%;
-    grid-column: 2 / 3; /* Ustawiamy obrazek w środkowej kolumnie drugiego rzędu */
+    grid-column: 2 / 3; 
     grid-row: 2 / 3;
 
-    display: flex;       /* Flexbox do centrowania obrazka */
+    display: flex;       
     justify-content: center;
     align-items: center
 }
