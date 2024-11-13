@@ -8,9 +8,15 @@
 }
   
   .container{
+    height: 100vh;
+    width: 100vw;
     display: grid;
-    grid-template-columns:20vh auto 20vh ;
-    grid-template-rows: 15vw auto 15vw;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns:20vw auto 20vw ;
+    grid-template-rows: 15vh auto 15vh;
     grid-template-areas: 
     "   .   nag   nav   "
     "   .   form   .   "
@@ -23,7 +29,11 @@
   .navbar {
     
     grid-area: nav;
-    /* font-size: 2rem; */
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    width: 100%;
+    height: 100px;
     
     
   }
@@ -36,7 +46,6 @@
     
     align-self: end;
   }
-  
   
   h1 {
     grid-area: nag;
@@ -89,10 +98,16 @@
   }
 
 
-  a:hover {
+  button:hover {
     color: orange;
     font-weight: bold;
 }
+
+/* button{
+    display: flex;
+    -ms-flex-align: center;
+    
+} */
 
 a{
 

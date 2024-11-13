@@ -14,6 +14,8 @@ body, html{
     padding: 0;
     text-align: center;
     
+    align-items: center;
+    
     grid-template-columns: 1fr 3fr 3fr 1fr;
     grid-template-rows: 15vh auto 15vh;
     display: grid;
@@ -77,9 +79,12 @@ body, html{
 }
 
   .navbar{
-    color: azure;
+    display: flex;
+    align-items: center;
     grid-area: navbar;
-    
+    font-size: 2rem;
+    width: 100%;
+    height: 100px;
     
     
   }

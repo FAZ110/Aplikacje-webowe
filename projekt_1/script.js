@@ -17,34 +17,26 @@ function toggleInfo() {
 
   
   
-// function updateClock() {
-//   const now = new Date();
-//   const hours = String(now.getHours()).padStart(2, '0');
-//   const minutes = String(now.getMinutes()).padStart(2, '0');
-//   const seconds = String(now.getSeconds()).padStart(2, '0');
-//   document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-//   }
-  
-//   // Call updateClock every second
-//   setInterval(updateClock, 1000);
-//   updateClock(); // Initial call to set the time immediately
-  
-
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
+  function startTime() {
+    const today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+    setTimeout(startTime, 1000);
 }
 
 function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
 }
   
+
+function goToPage(page) {
+  window.location.href = page; // Navigate to the specified page
+}
+
   
   
