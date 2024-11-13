@@ -19,7 +19,7 @@ body, html{
     display: grid;
     
     grid-template-areas: 
-    "   .   header   header   navbar   "
+    "   clock   header   header   navbar   "
     "   galleries   galleries   galleries   galleries   "
     "   .   .   .   footer   "
    
@@ -107,3 +107,15 @@ a{
     font-size: 1rem;
     color: azure;
 }
+
+#clock {
+    grid-area: clock;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+    align-self: start;
+    justify-self: start;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional styling */
+    border-radius: 5px;
+  }
