@@ -1,13 +1,13 @@
-/* Styl dla całego dokumentu */
+
 body {
   margin: 0;
   overflow: hidden;
   font-family: Arial, sans-serif;
-  background-color: black; /* Domyślne tło w przypadku braku obrazu */
+  background-color: black; 
   cursor: none;
 }
 
-/* Kontener gry */
+
 #game-container {
   position: relative;
   width: 100vw;
@@ -15,7 +15,7 @@ body {
   background: url('icons/board-bg.jpg') no-repeat center center/cover;
 }
 
-/* Płótno do rysowania */
+
 #game-canvas {
   position: absolute;
   top: 0;
@@ -24,14 +24,14 @@ body {
   height: 100%;
 }
 
-/* Wynik i życie */
+
 #score, #lives {
   position: absolute;
   color: white;
   font-size: 2em;
   font-weight: bold;
   z-index: 10;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Dodanie efektu cienia */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
 }
 
 #score {
@@ -51,7 +51,6 @@ body {
   height: 40px;
 }
 
-/* Celownik */
 #aim {
   position: absolute;
   width: 100px;
@@ -61,29 +60,29 @@ body {
   
   pointer-events: none;
   transform: translate(-50%, -50%);
-  z-index: 10; /* Wyższy priorytet niż tło */
+  z-index: 10; 
 }
 
-/* Ekran końca gry */
+
 #game-over {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8); /* Czarne półprzezroczyste tło */
+  background-color: rgba(0, 0, 0, 0.8); 
   color: white;
   padding: 20px;
   border-radius: 10px;
   z-index: 100;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); /* Subtelny efekt blasku */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); 
 }
 
 .hidden {
   display: none;
 }
 
-/* Przycisk restartu */
+
 button {
   padding: 10px 20px;
   font-size: 1.2em;
@@ -99,7 +98,7 @@ button:hover {
   background-color: darkred;
 }
 
-/* Responsywność */
+
 @media (max-width: 600px) {
   #score, #lives {
       font-size: 1.5em;

@@ -1,11 +1,11 @@
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 
-// Ustawienie rozmiaru płótna
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Elementy interfejsu
+
 const scoreDisplay = document.getElementById("score");
 const livesContainer = document.getElementById("lives");
 const aim = document.getElementById("aim");
@@ -14,17 +14,17 @@ const finalScore = document.getElementById("final-score");
 const restartButton = document.getElementById("restart-button");
 const gameMusic = document.getElementById("game-music");
 
-// Zmienne gry
+
 let score = 0;
 let lives = 3;
 let zombies = [];
 let gameRunning = true;
 
-// Załadowanie sprite sheet z animacją zombi
-const zombieImage = new Image();
-zombieImage.src = "icons/walkingdead.png"; // Sprite sheet z animacją zombi
 
-// Funkcja aktualizująca wyświetlanie żyć
+const zombieImage = new Image();
+zombieImage.src = "icons/walkingdead.png"; 
+
+
 function updateLivesDisplay() {
   livesContainer.innerHTML = "";
   for (let i = 0; i < 3; i++) {
@@ -35,19 +35,19 @@ function updateLivesDisplay() {
 }
 updateLivesDisplay();
 
-// Klasa Zombie
+
 class Zombie {
   constructor() {
     this.x = canvas.width;
-    this.y = Math.random() * (canvas.height - 128); // Zombie pojawia się losowo na wysokości
+    this.y = Math.random() * (canvas.height - 128); 
     this.size = Math.random() * 100 + 100; 
-    this.speed = Math.random()*5+1; // Stała prędkość
+    this.speed = Math.random()*5+1; 
 
-    // Animacja
-    this.frame = 0; // Obecna klatka animacji
-    this.frameCount = 10; // Liczba klatek w sprite sheet
-    this.frameWidth = 200; // Szerokość jednej klatki
-    this.frameHeight = 312; // Wysokość jednej klatki
+   
+    this.frame = 0; 
+    this.frameCount = 10; 
+    this.frameWidth = 200; 
+    this.frameHeight = 312; 
     this.animationSpeed = 100;
     this.lastFrameTime = Date.now(); 
     
@@ -56,17 +56,17 @@ class Zombie {
   draw() {
     const now = Date.now();
   
-    // Sprawdź, czy minął czas na zmianę klatki
+    
     if (now - this.lastFrameTime > this.animationSpeed) {
-      this.frame = (this.frame + 1) % this.frameCount; // Przejdź do następnej klatki
-      this.lastFrameTime = now; // Zaktualizuj czas ostatniej klatki
+      this.frame = (this.frame + 1) % this.frameCount; 
+      this.lastFrameTime = now; 
     }
   
-    // Rysowanie odpowiedniej klatki
+    
     ctx.drawImage(
       zombieImage,
-      this.frame * this.frameWidth, // Pozycja klatki w sprite sheet
-      0, // Zakładamy jeden rząd
+      this.frame * this.frameWidth, 
+      0, 
       this.frameWidth,
       this.frameHeight,
       this.x,
@@ -82,7 +82,7 @@ class Zombie {
   }
 }
 
-// Funkcja tworząca nowego zombie
+
 function spawnZombie() {
   if (gameRunning) {
     zombies.push(new Zombie());
@@ -91,7 +91,7 @@ function spawnZombie() {
    
 }
 
-// Funkcja sprawdzająca kolizję myszy z zombie
+
 function checkCollision(x, y, zombie) {
   return (
     x > zombie.x &&
@@ -101,15 +101,15 @@ function checkCollision(x, y, zombie) {
   );
 }
 
-// Pętla gry
+
 function gameLoop() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // Wyczyść płótno
+  ctx.clearRect(0, 0, canvas.width, canvas.height); 
 
   zombies.forEach((zombie, index) => {
     zombie.update();
     zombie.draw();
 
-    // Sprawdzenie, czy zombie wyszedł poza ekran
+    
     if (zombie.x < -zombie.size) {
       lives--;
       updateLivesDisplay();
@@ -125,7 +125,7 @@ function gameLoop() {
   }
 }
 
-// Obsługa kliknięcia w płótno
+
 canvas.addEventListener("click", (e) => {
   if (!gameRunning) return;
 
@@ -143,40 +143,40 @@ canvas.addEventListener("click", (e) => {
   });
 
   if (!zombieHit) {
-    score = Math.max(0, score - 5); // Wynik nie może spaść poniżej 0
+    score = Math.max(0, score - 5); 
   }
 
   scoreDisplay.textContent = `Wynik: ${score.toString().padStart(5, "0")}`;
 });
 
-// Funkcja kończąca grę
+
 function endGame() {
   gameRunning = false;
-  document.body.style.backgroundColor = "black"; // Zmiana tła
+  document.body.style.backgroundColor = "black"; 
   gameMusic.play();
   setTimeout(() => {
     gameOverScreen.classList.remove("hidden");
     finalScore.textContent = score;
-  }, 1000); // 1-sekundowe opóźnienie
+  }, 1000); 
 }
 
-// Obsługa restartu gry
+
 restartButton.addEventListener("click", () => {
   location.reload();
 });
 
-// Obsługa ruchu celownika
+
 document.addEventListener("mousemove", (e) => {
   aim.style.left = `${e.clientX}px`;
   aim.style.top = `${e.clientY}px`;
 });
 
-// Dostosowanie rozmiaru płótna przy zmianie rozmiaru okna
+
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
 
-// Rozpoczęcie gry
+
 spawnZombie();
 gameLoop();
