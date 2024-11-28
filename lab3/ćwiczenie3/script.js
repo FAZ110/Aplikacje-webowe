@@ -5,22 +5,22 @@ const sortSelect = document.getElementById('sort');
 let products = [];
 let originalProducts = [];
 
-// Funkcja do pobierania danych
+
 async function fetchProducts() {
   try {
     const response = await fetch('https://dummyjson.com/products');
     const data = await response.json();
-    products = data.products.slice(0, 30); // Pobierz pierwsze 30 elementów
-    originalProducts = [...products]; // Kopia do zachowania oryginalnej kolejności
+    products = data.products.slice(0, 30); 
+    originalProducts = [...products]; 
     renderTable(products);
   } catch (error) {
     console.error('Błąd podczas pobierania danych:', error);
   }
 }
 
-// Funkcja do renderowania tabeli
+
 function renderTable(data) {
-  tableBody.innerHTML = ''; // Wyczyść zawartość tabeli
+  tableBody.innerHTML = ''; 
   data.forEach(product => {
     const row = document.createElement('tr');
 
@@ -43,7 +43,7 @@ function renderTable(data) {
   });
 }
 
-// Funkcja do filtrowania danych
+
 function filterProducts(query) {
   return originalProducts.filter(product =>
     product.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -51,24 +51,24 @@ function filterProducts(query) {
   );
 }
 
-// Funkcja do sortowania danych
+
 function sortProducts(data, order) {
     if (order === 'asc') {
       return [...data].sort((a, b) => a.title.localeCompare(b.title));
     } else if (order === 'desc') {
       return [...data].sort((a, b) => b.title.localeCompare(a.title));
     }
-    return data; // Nie zmieniaj kolejności w przypadku "oryginalnej kolejności"
+    return data; 
   }
   
-  // Obsługa pola wyszukiwania
+ 
   searchInput.addEventListener('input', () => {
     const filteredData = filterProducts(searchInput.value);
     const sortedData = sortProducts(filteredData, sortSelect.value);
     renderTable(sortedData);
   });
   
-  // Obsługa sortowania
+  
   sortSelect.addEventListener('change', () => {
     const filteredData = filterProducts(searchInput.value);
     const sortedData = sortProducts(filteredData, sortSelect.value);
@@ -76,5 +76,5 @@ function sortProducts(data, order) {
   });
   
 
-// Pobranie danych przy ładowaniu strony
+
 fetchProducts();
