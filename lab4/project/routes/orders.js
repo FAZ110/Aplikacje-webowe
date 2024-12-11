@@ -45,4 +45,40 @@ router.delete('/:id', authMiddleware, async (req, res) => {
     }
 });
 
+router.patch('/:id', authMiddleware, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { bookId, quantity } = req.body;
+  
+      // Znajdź zamówienie po ID
+      const order = await Order.findByPk(id);
+      if (!order) {
+        return res.status(404).send('Order not found');
+      }
+  
+      if (order.userId !== req.user.id) {
+        return res.status(403).send('Forbidden');
+      }
+  
+      // Jeśli przekazano nowy bookId, sprawdź czy dana książka istnieje
+      if (bookId !== undefined) {
+        const book = await Book.findByPk(bookId);
+        if (!book) {
+          return res.status(404).send('Book not found');
+        }
+        order.bookId = bookId;
+      }
+  
+      // Aktualizuj ilość, jeśli podano
+      if (quantity !== undefined) {
+        order.quantity = quantity;
+      }
+  
+      await order.save();
+      res.json(order);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+
 module.exports = router;
