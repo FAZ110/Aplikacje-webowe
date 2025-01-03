@@ -4,7 +4,7 @@ const sequelize = require('../database');
 const Book = sequelize.define('Book', {
     id: {
         type: DataTypes.INTEGER,
-        primaryKey: true, // Klucz główny
+        primaryKey: true, 
         autoIncrement: true,
     },
     title: {
